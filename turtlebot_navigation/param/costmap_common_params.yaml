@@ -24,7 +24,7 @@ obstacle_layer:
   #publish_voxel_map: false
   observation_sources:  scan #bump
   scan:
-    sensor_frame: turtle_a_laser_link
+    #sensor_frame: turtle_a_laser_link
     data_type: LaserScan
     topic: scan
     marking: true
