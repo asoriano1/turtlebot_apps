@@ -19,7 +19,8 @@
     <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />   
     <rosparam file="$(find turtlebot_navigation)/param/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find turtlebot_navigation)/param/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find turtlebot_navigation)/param/dwa_local_planner_params.yaml" command="load" />
+    <!--rosparam file="$(find turtlebot_navigation)/param/dwa_local_planner_params.yaml" command="load" /-->
+    <rosparam file="$(find turtlebot_navigation)/param/teb_local_planner_params.yaml" command="load" />
     <rosparam file="$(find turtlebot_navigation)/param/move_base_params.yaml" command="load" />
     <rosparam file="$(find turtlebot_navigation)/param/global_planner_params.yaml" command="load"/>
     <rosparam file="$(find turtlebot_navigation)/param/navfn_global_planner_params.yaml" command="load" />
@@ -31,9 +32,11 @@
     <param name="global_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
     <param name="local_costmap/global_frame" value="$(arg odom_frame_id)"/>
     <param name="local_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
-    <param name="DWAPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/>
+    <!--param name="DWAPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/-->
     <param name="obstacle_layer/scan/sensor_frame" value="$(arg sensor_frame)"/>
-    <param unless="$(arg matter_orientation)" name="DWAPlannerROS/yaw_goal_tolerance" value="1.750"/>
+    <!--param unless="$(arg matter_orientation)" name="DWAPlannerROS/yaw_goal_tolerance" value="1.750"/-->
+    <param name="TebLocalPlannerROS/map_frame" value="$(arg odom_frame_id)"/>
+    <param unless="$(arg matter_orientation)" name="TebLocalPlannerROS/yaw_goal_tolerance" value="1.750"/>
 
     <!-- remap from="cmd_vel" to="/navigation_velocity_smoother/raw_cmd_vel"/ -->
     <remap from="cmd_vel" to="mobile_base/commands/velocity"/>     
